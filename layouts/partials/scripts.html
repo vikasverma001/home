@@ -1,0 +1,20 @@
+<script>
+function toggleNav() {
+  var b = document.querySelector('.nav-toggle'),
+      m = document.getElementById('navMobile');
+  b.classList.toggle('open');
+  m.classList.toggle('open');
+}
+document.getElementById('navMobile').querySelectorAll('a').forEach(function (a) {
+  a.addEventListener('click', function () {
+    document.querySelector('.nav-toggle').classList.remove('open');
+    document.getElementById('navMobile').classList.remove('open');
+  });
+});
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.topnav') && !e.target.closest('.nav-mobile')) {
+    document.querySelector('.nav-toggle').classList.remove('open');
+    document.getElementById('navMobile').classList.remove('open');
+  }
+});
+</script>

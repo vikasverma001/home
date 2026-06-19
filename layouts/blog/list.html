@@ -1,0 +1,164 @@
+{{ define "pagecss" }}<link rel="stylesheet" href="{{ "css/blog.css" | relURL }}">{{ end }}
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="eyebrow">Blog</div>
+    <h1>Writing on product &amp; leadership.</h1>
+    <p class="lead">Lessons from 20 years of building mobile products, implementing Salesforce, and designing support organizations. No fluff — just what actually works.</p>
+  </div>
+
+  {{/* Featured = the post flagged featured, else the newest */}}
+  {{ $featured := index (where .RegularPages "Params.featured" true) 0 }}
+  {{ if not $featured }}{{ $featured = index .RegularPages 0 }}{{ end }}
+
+  {{/* Distinct categories across all posts, slugified for matching */}}
+  {{ $cats := slice }}
+  {{ range .RegularPages }}{{ with .Params.category }}{{ $cats = $cats | append . }}{{ end }}{{ end }}
+  {{ $cats = $cats | uniq | sort }}
+
+  {{ if $cats }}
+  <div class="filter-bar" id="blogFilters">
+    <span class="filter-bar-label">Filter by</span>
+    <button class="filter-pill active" data-filter="all">All</button>
+    {{ range $cats }}<button class="filter-pill" data-filter="{{ trim (replaceRE `[^a-z0-9]+` "-" (lower .)) "-" }}">{{ . }}</button>{{ end }}
+  </div>
+  {{ end }}
+
+  {{ with $featured }}
+  <div id="blogFeaturedWrap">
+    <div class="featured" data-cat="{{ with .Params.category }}{{ trim (replaceRE `[^a-z0-9]+` "-" (lower .)) "-" }}{{ end }}">
+      {{ $fimg := .Params.image | default (printf "/img/blog/%s.svg" .File.ContentBaseName) }}
+      {{ with $fimg }}<a class="featured-img" href="{{ $featured.RelPermalink }}"><img src="{{ . | relURL }}" alt="{{ $featured.Title }}" loading="lazy"></a>{{ end }}
+      <div class="featured-label">⭐ Featured post</div>
+      {{ with .Params.category }}<div class="featured-cat">{{ . }}</div>{{ end }}
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary }}</p>
+      <div class="featured-meta">
+        <span class="featured-date">{{ .Date.Format "Jan 2006" }}{{ with .Params.readtime }} · {{ . }}{{ end }}</span>
+        <a class="featured-link" href="{{ .RelPermalink }}">Read post →</a>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="sec-label" id="blogAllLabel">All posts</div>
+  <div class="post-list" id="blogList">
+    {{ range .RegularPages }}
+    <a class="post-item{{ if eq .Permalink $featured.Permalink }} is-featured-dup{{ end }}" data-cat="{{ with .Params.category }}{{ trim (replaceRE `[^a-z0-9]+` "-" (lower .)) "-" }}{{ end }}" href="{{ .RelPermalink }}">
+      {{ $timg := .Params.image | default (printf "/img/blog/%s.svg" .File.ContentBaseName) }}
+      {{ with $timg }}<div class="post-thumb"><img src="{{ . | relURL }}" alt="" loading="lazy"></div>{{ end }}
+      <div class="post-main">
+        {{ with .Params.category }}<div class="post-cat">{{ . }}</div>{{ end }}
+        <div class="post-title">{{ .Title }}</div>
+        <div class="post-excerpt">{{ .Summary }}</div>
+        <div class="post-tags">{{ range .Params.tags }}<span class="post-tag">{{ . }}</span>{{ end }}</div>
+      </div>
+      <div class="post-right">
+        <div class="post-date">{{ .Date.Format "Jan 2006" }}</div>
+        {{ with .Params.readtime }}<div class="post-read">{{ replaceRE " read$" "" . }}</div>{{ end }}
+        <span class="post-arrow">→</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  <div class="filter-empty" id="blogEmpty" hidden>No posts in this category yet — try another filter.</div>
+
+  <div class="newsletter">
+    <h3>Get new posts by email</h3>
+    <p>When I write something new about product management, Salesforce, or service leadership — I'll send it straight to you. No spam. Unsubscribe any time.</p>
+    <div class="newsletter-form">
+      <input type="email" id="nlEmail" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
+      <button type="button" id="nlBtn">Subscribe</button>
+    </div>
+    <div class="newsletter-msg" id="nlMsg" role="status" aria-live="polite"></div>
+  </div>
+  <div style="height:48px;"></div>
+</div>
+
+<script>
+(function () {
+  var filters = document.getElementById("blogFilters");
+  if (!filters) return;
+  var list      = document.getElementById("blogList");
+  var items     = Array.prototype.slice.call(list.querySelectorAll(".post-item"));
+  var featured  = document.getElementById("blogFeaturedWrap");
+  var allLabel  = document.getElementById("blogAllLabel");
+  var empty     = document.getElementById("blogEmpty");
+
+  function apply(f) {
+    var isAll = (f === "all");
+    if (featured) featured.style.display = isAll ? "" : "none";
+    if (allLabel) allLabel.style.display = isAll ? "" : "none";
+    var shown = 0;
+    items.forEach(function (c) {
+      var match;
+      if (isAll) {
+        match = !c.classList.contains("is-featured-dup"); // avoid duplicating the featured card
+      } else {
+        match = c.getAttribute("data-cat") === f;
+      }
+      c.style.display = match ? "" : "none";
+      if (match) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  filters.addEventListener("click", function (e) {
+    var btn = e.target.closest(".filter-pill");
+    if (!btn) return;
+    filters.querySelectorAll(".filter-pill").forEach(function (p) { p.classList.remove("active"); });
+    btn.classList.add("active");
+    apply(btn.getAttribute("data-filter"));
+  });
+
+  apply("all");
+})();
+</script>
+
+<script>
+/* Newsletter subscribe.
+   To capture emails for real, set ENDPOINT to your provider's POST URL
+   (Buttondown / Mailchimp / ConvertKit / Formspree). Until then it falls
+   back to opening the visitor's email app addressed to you. */
+(function () {
+  var btn   = document.getElementById("nlBtn");
+  var input = document.getElementById("nlEmail");
+  var msg   = document.getElementById("nlMsg");
+  if (!btn || !input) return;
+
+  var ENDPOINT    = "";                       // e.g. "https://buttondown.email/api/emails/embed-subscribe/xxxx"
+  var OWNER_EMAIL = "vikas@vikasverma.ca";
+
+  function valid(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+  function show(text, ok) {
+    msg.textContent = text;
+    msg.className = "newsletter-msg" + (ok ? " is-ok" : " is-err");
+  }
+
+  function submit() {
+    var email = (input.value || "").trim();
+    if (!valid(email)) { show("Please enter a valid email address.", false); input.focus(); return; }
+
+    if (ENDPOINT) {
+      btn.disabled = true; btn.textContent = "Subscribing…";
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function (r) { if (!r.ok) throw new Error(); show("Thanks! You're subscribed.", true); input.value = ""; })
+      .catch(function () { show("Something went wrong — please email " + OWNER_EMAIL + " directly.", false); })
+      .then(function () { btn.disabled = false; btn.textContent = "Subscribe"; });
+    } else {
+      window.location.href = "mailto:" + OWNER_EMAIL +
+        "?subject=" + encodeURIComponent("Subscribe me to the blog") +
+        "&body="    + encodeURIComponent("Please add this address to your newsletter: " + email);
+      show("Thanks! Your email app will open — just hit send to confirm.", true);
+    }
+  }
+
+  btn.addEventListener("click", submit);
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+})();
+</script>
+{{ end }}

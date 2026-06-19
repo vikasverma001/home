@@ -1,0 +1,46 @@
+/* About page */
+.page-header { margin-bottom: 48px; }
+.profile-strip {
+  display: flex; align-items: center; gap: 24px;
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 28px 32px; margin-bottom: 36px;
+}
+.profile-avatar {
+  width: 80px; height: 80px; border-radius: 50%; background: var(--cream-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 800; color: var(--sage); flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(26,24,20,.1);
+}
+.profile-info h3 { font-size: 22px; margin-bottom: 4px; }
+.profile-info .role { font-size: 15px; color: var(--sage); font-weight: 600; margin-bottom: 3px; }
+.profile-info .loc { font-size: 14px; color: var(--ink-light); }
+
+.body-text p { font-size: 18px; margin-bottom: 22px; line-height: 1.8; }
+.body-text p strong { color: var(--ink); font-weight: 700; }
+
+.approach-list { display: flex; flex-direction: column; gap: 14px; }
+.approach-item {
+  display: grid; grid-template-columns: 60px 1fr; gap: 20px;
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px;
+}
+.approach-num { font-size: 36px; font-weight: 800; color: var(--cream-dark); line-height: 1; }
+.approach-body h4 { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.approach-body p { font-size: 16px; color: var(--ink-mid); line-height: 1.75; }
+
+.facts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.fact { text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 16px; }
+.fact-val { font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; display: block; margin-bottom: 6px; }
+.fact-lbl { font-size: 14px; color: var(--ink-light); font-weight: 500; }
+
+.pullquote {
+  border-left: 4px solid var(--sage); padding: 24px 32px; background: var(--sage-light);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 48px 0;
+}
+.pullquote p { font-size: 22px; color: var(--sage-dark); font-style: italic; line-height: 1.5; font-weight: 500; }
+.pullquote cite { display: block; font-size: 14px; color: var(--sage); font-style: normal; font-weight: 700; margin-top: 12px; }
+
+@media (max-width: 768px) {
+  .facts-grid { grid-template-columns: repeat(2,1fr); }
+  .profile-strip { flex-direction: column; text-align: center; }
+  .approach-item { grid-template-columns: 1fr; }
+}

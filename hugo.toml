@@ -1,0 +1,71 @@
+baseURL = "https://vikasverma.ca/"
+languageCode = "en-us"
+title = "Vikas Verma — Product Leader & Consultant"
+enableEmoji = true
+disableKinds = ["taxonomy", "term"]
+
+# Pretty-print blog reading times etc.
+[params]
+  author = "Vikas Verma"
+  description = "Product Manager & Solutions Architect — 20+ years across Retail, Health, Banking, Government & Hospitality. Founder of Vikas Verma Consulting Inc."
+
+# Raw HTML in content files (the designed pages use bespoke markup)
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+
+# ── PRIMARY NAVIGATION ─────────────────────────────────
+# Defined ONCE here. Active state + mobile menu are generated
+# automatically by the nav partial.
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+  [menu.main.params]
+    icon = "🏠"
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+  [menu.main.params]
+    icon = "👤"
+
+[[menu.main]]
+  name = "Experience"
+  url = "/experience/"
+  weight = 3
+  [menu.main.params]
+    icon = "💼"
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 4
+  [menu.main.params]
+    icon = "🗂️"
+
+[[menu.main]]
+  name = "Skills"
+  url = "/skills/"
+  weight = 5
+  [menu.main.params]
+    icon = "🎓"
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 6
+  [menu.main.params]
+    icon = "✍️"
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 7
+  [menu.main.params]
+    icon = "📬"
+    cta = true
+    mobilename = "Contact me"

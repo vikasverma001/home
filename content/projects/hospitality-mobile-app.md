@@ -1,0 +1,24 @@
++++
+title = "Mobile app roadmap & launch — Case Study"
+description = "Owning a guest-facing mobile app from discovery through launch and into a quarterly iteration loop."
+css = "case-study"
+weight = 0
++++
+<div class="page-wrap cs-wrap">
+<a class="cs-back" href="/projects/">← All projects</a>
+<div class="cs-hero">
+<div class="cs-eyebrow"><span class="cs-emoji">🏨</span> Hospitality · Case Study</div>
+<h1>Mobile app roadmap &amp; launch</h1>
+<p class="cs-tagline">Owning a guest-facing mobile app from discovery through launch and into a quarterly iteration loop.</p>
+<div class="cs-meta"><div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-val">Product Manager</span></div><div class="cs-meta-item"><span class="cs-meta-label">Timeframe</span><span class="cs-meta-val">~12 months</span></div><div class="cs-meta-item"><span class="cs-meta-label">Industry</span><span class="cs-meta-val">Hospitality</span></div></div>
+</div>
+<div class="cs-metrics"><div class="cs-metric"><div class="cs-metric-num">0→1</div><div class="cs-metric-label">Product launch</div></div><div class="cs-metric"><div class="cs-metric-num">quarterly</div><div class="cs-metric-label">Iteration loop</div></div><div class="cs-metric"><div class="cs-metric-num">1</div><div class="cs-metric-label">Guest app</div></div><div class="cs-metric"><div class="cs-metric-num">↑</div><div class="cs-metric-label">Engagement</div></div></div>
+<div class="cs-note">✎ Draft case study — figures and specifics are illustrative placeholders. We’ll refine these together.</div>
+<section class="cs-section"><h2>The challenge</h2><p>The brand wanted a guest-facing mobile app but had no product function to define what it should be. Stakeholders had strong, conflicting opinions and there was real pressure to ship something fast.</p><p>The risk was building a feature pile rather than a coherent product guests would actually use.</p></section>
+<section class="cs-section"><h2>Approach</h2><div class="cs-phases"><div class="cs-phase"><div class="cs-phase-num">01</div><div class="cs-phase-body"><h3>Discovery</h3><p>Ran guest and stakeholder research to separate real needs from feature requests and frame the core jobs the app had to do.</p></div></div><div class="cs-phase"><div class="cs-phase-num">02</div><div class="cs-phase-body"><h3>Roadmap &amp; MVP</h3><p>Defined a focused MVP and a sequenced roadmap, making explicit trade-offs about what would not ship first.</p></div></div><div class="cs-phase"><div class="cs-phase-num">03</div><div class="cs-phase-body"><h3>Delivery</h3><p>Worked with engineering and design through build, balancing scope against the launch window.</p></div></div><div class="cs-phase"><div class="cs-phase-num">04</div><div class="cs-phase-body"><h3>Launch</h3><p>Ran go-to-market — store presence, rollout, and support readiness — for a clean first release.</p></div></div><div class="cs-phase"><div class="cs-phase-num">05</div><div class="cs-phase-body"><h3>Iteration loop</h3><p>Stood up a feedback-to-roadmap loop so first-release data drove the next quarter’s priorities.</p></div></div></div></section>
+<section class="cs-section"><h2>How it fit together</h2><div class="cs-arch"><div class="cs-arch-row"><div class="cs-arch-tag">Core jobs</div><p>The roadmap is anchored to a few guest jobs-to-be-done, not a feature wishlist.</p></div><div class="cs-arch-row"><div class="cs-arch-tag">MVP scope</div><p>A deliberately focused first release with explicit, defensible trade-offs.</p></div><div class="cs-arch-row"><div class="cs-arch-tag">Feedback loop</div><p>Usage data and guest feedback feed directly into prioritization.</p></div><div class="cs-arch-row"><div class="cs-arch-tag">Cadence</div><p>A quarterly planning rhythm keeps the roadmap honest and outcome-driven.</p></div></div><div class="cs-diagram">Architecture / flow diagram — to add</div></section>
+<section class="cs-section"><h2>Outcomes</h2><ul class="cs-outcomes"><li>Took the app from concept to a clean 0→1 launch.</li><li>Established a focused MVP instead of an unfocused feature pile.</li><li>Built a repeatable feedback-to-roadmap loop guiding each quarter.</li><li>Engagement grew as iterations responded to real guest behavior.</li></ul></section>
+<section class="cs-section"><h2>Tools &amp; tech</h2><div class="cs-stack"><span>Product Strategy</span><span>Roadmapping</span><span>Mobile</span><span>Discovery</span><span>Go-to-Market</span></div></section>
+<section class="cs-section cs-reflection"><h2>Reflections</h2><p>The discipline that mattered most was saying no. A tight MVP and an honest iteration loop beat shipping everything at once — and made every later decision easier to defend.</p></section>
+<div class="cs-next"><a href="/projects/">← Back to all projects</a><a href="/contact/">Discuss this work →</a></div>
+</div>

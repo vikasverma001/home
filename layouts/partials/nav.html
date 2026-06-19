@@ -1,0 +1,30 @@
+{{ $cur := .RelPermalink }}
+<header class="topnav">
+  <a class="nav-logo" href="{{ "/" | relURL }}" aria-label="Vikas Verma — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+      <rect width="32" height="32" rx="8" fill="var(--sage)"/>
+      <path d="M7 10.5 L14 21 L21 10.5" fill="none" stroke="#9DC3AC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 10.5 L18 21 L25 10.5" fill="none" stroke="var(--cream)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-text">Vikas <span>Verma</span></span>
+  </a>
+  <nav class="nav-links">
+    {{ range .Site.Menus.main }}
+      {{ $link := .URL | relURL }}
+      {{ $active := cond (eq .URL "/") (eq $cur $link) (or (eq $cur $link) (hasPrefix $cur $link)) }}
+      <a href="{{ $link }}" class="{{ if .Params.cta }}nav-cta{{ end }}{{ if $active }} active{{ end }}">{{ .Name }}</a>
+    {{ end }}
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="nav-mobile" id="navMobile">
+  {{ range .Site.Menus.main }}
+    {{ $link := .URL | relURL }}
+    {{ $active := cond (eq .URL "/") (eq $cur $link) (or (eq $cur $link) (hasPrefix $cur $link)) }}
+    {{ if .Params.cta }}<div class="nav-mobile-divider"></div>{{ end }}
+    <a href="{{ $link }}" class="{{ if .Params.cta }}nav-mobile-cta{{ end }}{{ if $active }} active{{ end }}">{{ with .Params.icon }}{{ . }} {{ end }}{{ with .Params.mobilename }}{{ . }}{{ else }}{{ .Name }}{{ end }}</a>
+  {{ end }}
+</div>

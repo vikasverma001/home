@@ -1,0 +1,4 @@
+{{ define "pagecss" }}{{ with .Params.css }}<link rel="stylesheet" href="{{ (printf "css/%s.css" .) | relURL }}">{{ end }}{{ end }}
+{{ define "main" }}
+{{ .Content }}
+{{ end }}

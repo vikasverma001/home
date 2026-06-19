@@ -1,0 +1,40 @@
+{{ define "pagecss" }}<link rel="stylesheet" href="{{ "css/blog.css" | relURL }}">{{ end }}
+{{ define "main" }}
+<div class="page-wrap page-wrap-wide">
+  <a class="post-back" href="{{ "/blog/" | relURL }}">← All posts</a>
+  <div class="post-layout">
+    <article class="post">
+      {{ $hero := .Params.image | default (printf "/img/blog/%s.svg" .File.ContentBaseName) }}
+      {{ with $hero }}<div class="post-hero"><img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="eager"></div>{{ end }}
+      {{ with .Params.category }}<div class="eyebrow">{{ . }}</div>{{ end }}
+      <h1>{{ .Title }}</h1>
+      <div class="post-byline">
+        {{ .Date.Format "January 2, 2006" }}{{ with .Params.readtime }} · {{ . }}{{ end }}
+      </div>
+      {{ with .Params.tags }}<div class="post-tags post-tags-top">{{ range . }}<span class="post-tag">{{ . }}</span>{{ end }}</div>{{ end }}
+      <div class="post-body">
+        {{ .Content }}
+      </div>
+      <div class="post-author">
+        <div class="post-author-avatar">VV</div>
+        <div class="post-author-info">
+          <div class="post-author-name">Written by Vikas Verma</div>
+          <div class="post-author-bio">Product Manager &amp; Solutions Architect · 20+ years across Retail, Health, Banking, Government &amp; Hospitality. Founder of Vikas Verma Consulting Inc.</div>
+          <div class="post-author-links">
+            <a href="{{ "/contact/" | relURL }}">Work with me →</a>
+            <a href="https://linkedin.com/in/vverma001" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {{ with .TableOfContents }}{{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
+    <aside class="post-toc">
+      <div class="post-toc-label">On this page</div>
+      {{ . }}
+    </aside>
+    {{ end }}{{ end }}
+  </div>
+  <div style="height:48px;"></div>
+</div>
+{{ end }}

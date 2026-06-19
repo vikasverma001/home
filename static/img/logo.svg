@@ -1,0 +1,5 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vikas Verma">
+  <rect width="32" height="32" rx="8" fill="#4A7C59"/>
+  <path d="M7 10.5 L14 21 L21 10.5" fill="none" stroke="#9DC3AC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 10.5 L18 21 L25 10.5" fill="none" stroke="#FAF8F5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

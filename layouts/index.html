@@ -1,0 +1,93 @@
+{{ define "pagecss" }}<link rel="stylesheet" href="{{ "css/home.css" | relURL }}">{{ end }}
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="hero">
+    <div class="hero-badge">Product Manager &amp; Solutions Architect</div>
+    <h1>Hi, I'm Vikas.<br><em>I build great products.</em></h1>
+    <p class="lead">20+ years delivering mobile-first products across Retail, Health, Banking, Government &amp; Hospitality. Founder of Vikas Verma Consulting Inc., Brampton, Ontario.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="{{ "/blog/" | relURL }}">Read my blog</a>
+      <a class="btn-secondary" href="{{ "/contact/" | relURL }}">Work with me</a>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">20+</span><div class="stat-lbl">Years experience</div></div>
+    <div class="stat"><span class="stat-num">30</span><div class="stat-lbl">Active accounts</div></div>
+    <div class="stat"><span class="stat-num">6</span><div class="stat-lbl">Industries</div></div>
+    <div class="stat"><span class="stat-num">11</span><div class="stat-lbl">Certifications</div></div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">What I do</div>
+    <div class="sec-title">Four things I spend my time on</div>
+    <div class="cards-grid">
+      <div class="card"><div class="card-icon">📱</div><h3>Product management</h3><p>Full roadmap ownership for mobile apps — from discovery through launch and continuous iteration across millions of users.</p></div>
+      <div class="card"><div class="card-icon">🏗️</div><h3>Solutions architecture</h3><p>End-to-end implementation design tailored to each customer's ecosystem. I bridge business need and technical reality.</p></div>
+      <div class="card"><div class="card-icon">🎧</div><h3>Support org design</h3><p>Built complete customer support organizations from scratch — hiring, tooling, SLAs, and the full service life cycle.</p></div>
+      <div class="card"><div class="card-icon">🤝</div><h3>Account leadership</h3><p>Managing 25–30 enterprise accounts with a focus on outcomes, retention, and long-term growth rather than just delivery.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Credentials</div>
+    <div class="sec-title">11 certifications across four disciplines</div>
+    <div class="cred-grid">
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">PSM I — Scrum Master</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">PSPO I — Scrum Product Owner</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Nexus — Scaled Scrum</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Salesforce Advanced Admin</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Salesforce Service Cloud</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Salesforce Experience Cloud</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Salesforce App Builder</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">Salesforce Developer I</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">JIRA Cloud Admin</div></div>
+      <div class="cred"><div class="cred-dot"></div><div class="cred-text">ITIL 4 Foundation</div></div>
+      <div class="cred"><div class="cred-dot" style="background:var(--amber);"></div><div class="cred-text">20+ yrs mobile delivery</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Industries</div>
+    <div class="sec-title">Six industries, one standard</div>
+    <div class="ind-row">
+      <span class="ind-pill">🛒 Retail</span><span class="ind-pill">❤️ Health</span><span class="ind-pill">🏨 Hospitality</span>
+      <span class="ind-pill">💻 High Tech</span><span class="ind-pill">🏛️ Government</span><span class="ind-pill">🏦 Banking</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Selected work</div>
+    <div class="sec-title">A few recent engagements</div>
+    <div class="work-grid">
+      <a class="work-card" href="{{ "/projects/" | relURL }}"><div class="work-ind">🛒 Retail</div><h3>Service Cloud rebuild</h3><p>Three support tools consolidated into one org with omni-channel routing. −38% handle time.</p></a>
+      <a class="work-card" href="{{ "/projects/" | relURL }}"><div class="work-ind">💻 High Tech</div><h3>Nexus transformation</h3><p>Five product teams aligned on a single integrated backlog and one delivery increment.</p></a>
+      <a class="work-card" href="{{ "/projects/" | relURL }}"><div class="work-ind">🏦 Banking</div><h3>Self-service portal</h3><p>Experience Cloud portal integrated to core CRM. −31% inbound support tickets.</p></a>
+    </div>
+    <a class="see-all" href="{{ "/projects/" | relURL }}">See all projects →</a>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">From the blog</div>
+    <div class="sec-title">Latest writing</div>
+    <div class="home-posts">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <a class="home-post" href="{{ .RelPermalink }}">
+        <div class="home-post-text">
+          {{ with .Params.category }}<div class="home-post-cat">{{ . }}</div>{{ end }}
+          <div class="home-post-title">{{ .Title }}</div>
+          <div class="home-post-sum">{{ .Summary }}</div>
+        </div>
+        <div class="home-post-meta">{{ .Date.Format "Jan 2006" }}{{ with .Params.readtime }}<span>{{ replaceRE " read$" "" . }}</span>{{ end }}</div>
+      </a>
+      {{ end }}
+    </div>
+    <a class="see-all" href="{{ "/blog/" | relURL }}">Read the blog →</a>
+  </div>
+
+  <div class="cta-band">
+    <h2>Looking for a PM or Salesforce architect? <em>Let's talk.</em></h2>
+    <a href="{{ "/contact/" | relURL }}">Get in touch →</a>
+  </div>
+</div>
+{{ end }}

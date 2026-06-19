@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 72" role="img" aria-label="Salesforce">
+  <g fill="#00A1E0">
+    <circle cx="40" cy="31" r="23"></circle>
+    <circle cx="63" cy="27" r="18"></circle>
+    <circle cx="76" cy="42" r="17"></circle>
+    <circle cx="26" cy="46" r="17"></circle>
+    <rect x="22" y="35" width="60" height="28" rx="14"></rect>
+  </g>
+</svg>
