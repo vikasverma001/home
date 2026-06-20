@@ -16,7 +16,7 @@ url = "/contact/"
   <div class="contact-row"><div class="contact-icon-wrap">📧</div><div><div class="contact-info-label">Email</div><div class="contact-info-val"><a href="mailto:vikas@vikasverma.ca">vikas@vikasverma.ca</a></div></div></div>
   <div class="contact-row"><div class="contact-icon-wrap">🔗</div><div><div class="contact-info-label">LinkedIn</div><div class="contact-info-val"><a href="https://linkedin.com/in/vverma001" target="_blank" rel="noopener">linkedin.com/in/vverma001</a></div></div></div>
   <div class="contact-row"><div class="contact-icon-wrap">🏢</div><div><div class="contact-info-label">Company</div><div class="contact-info-val">Vikas Verma Consulting Inc.</div></div></div>
-  <div class="contact-row"><div class="contact-icon-wrap">📍</div><div><div class="contact-info-label">Location</div><div class="contact-info-val">Brampton, Ontario, Canada</div></div></div>
+  <div class="contact-row"><div class="contact-icon-wrap">📍</div><div><div class="contact-info-label">Location</div><div class="contact-info-val">Ontario, Canada</div></div></div>
 </div>
 <div class="avail-box">
   <h3>Currently available for</h3>
