@@ -52,7 +52,7 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
 }
-.nav-logo { display: inline-flex; align-items: center; gap: 11px; font-size: 18px; font-weight: 800; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
+.nav-logo { display: inline-flex; align-items: center; gap: 13px; font-size: 22px; font-weight: 800; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
 .nav-logo-mark { flex-shrink: 0; border-radius: 8px; transition: transform .2s ease; }
 .nav-logo:hover .nav-logo-mark { transform: rotate(-6deg) scale(1.04); }
 .nav-logo-text { color: var(--ink); }
