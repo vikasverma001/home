@@ -77,8 +77,6 @@ don't hardcode hex values or font names** in new styles.
   sage greens (`--sage` `#4A7C59`, `--sage-light`, `--sage-dark`),
   amber accents (`--amber` `#C8823A`, `--amber-light`), plus `--border`, `--white`.
 - **Font**: `--font` is **Inter**, loaded from Google Fonts in `layouts/partials/head.html`.
-  (Note: the README still mentions "Plus Jakarta Sans" — that's outdated; the live
-  font is Inter.)
 - **Shape/spacing**: `--radius-lg` (20px), `--radius-md` (14px), `--radius-sm` (50px),
   `--nav-h` (64px nav height).
 
