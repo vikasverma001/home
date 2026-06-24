@@ -1,0 +1,184 @@
+/* ==========================================================================
+   vikasverma.ca — Design Tokens
+   The single source of truth for color, type, space, and shape.
+   Everything else in the site should reference these variables, never raw
+   values. Change a token here and the whole site updates.
+
+   HOW TO USE IN HUGO
+   - Save as: assets/css/tokens.css (or static/css/tokens.css)
+   - Import it BEFORE your main stylesheet so the variables exist first:
+       @import "tokens.css";
+   - Then in any rule, reference a token:  color: var(--color-ink);
+
+   ⚠ VALUES TO VERIFY: the hex codes and font families below are a deliberate
+   sage/cream starting palette, not read from your live CSS. Open your site,
+   inspect an element in dev tools, and replace any value that differs.
+   Keep the variable NAMES the same — only the values should change.
+   ========================================================================== */
+
+:root {
+
+  /* ---------------------------------------------------------------------
+     1. COLOR
+     Named by ROLE (what it's for), not by hue (what it looks like).
+     "--color-ink" survives a palette change; "--color-dark-green" doesn't.
+     --------------------------------------------------------------------- */
+
+  /* Surfaces — backgrounds, from base page up to raised cards */
+  --color-bg:            #F6F3EA;  /* page background — warm cream */
+  --color-surface:       #FFFFFF;  /* cards, raised panels */
+  --color-surface-alt:   #EFEBDC;  /* alternating section bands, subtle fills */
+
+  /* Text — on cream/white surfaces */
+  --color-ink:           #2C312A;  /* primary text — green-tinted near-black */
+  --color-ink-muted:     #565E4F;  /* secondary text, captions, metadata */
+  --color-ink-subtle:    #8A9079;  /* disabled, faint labels */
+  --color-ink-inverse:   #F6F3EA;  /* text on dark/sage surfaces */
+
+  /* Brand sage — primary actions and brand moments
+     -primary is darkened enough that WHITE text on it passes WCAG AA (4.5:1).
+     -sage is the lighter decorative tone that matches the VV monogram;
+     use it for borders/accents, NOT as a background for white text. */
+  --color-primary:       #5E7152;  /* button & link-action background */
+  --color-primary-hover: #4C5D42;  /* hover / active state */
+  --color-primary-soft:  #DCE4D3;  /* tinted chip & hover backgrounds */
+  --color-sage:          #8A9A7B;  /* decorative brand sage (logo family) */
+
+  /* Lines & dividers */
+  --color-border:        #E2DECF;  /* hairline borders, card edges */
+  --color-border-strong: #CFC9B4;  /* stronger dividers when needed */
+
+  /* Optional warm accent — for ONE emphasis moment per page if you ever
+     want contrast against all the green. Leave unused to stay monochrome. */
+  --color-accent:        #C2703D;  /* terracotta (optional) */
+
+  /* Feedback (use sparingly — a portfolio rarely needs all of these) */
+  --color-success:       #4C7A4A;
+  --color-danger:        #B23A33;
+
+
+  /* ---------------------------------------------------------------------
+     2. TYPOGRAPHY
+     A 1.25 (major-third) scale on a 16px base. Two families: a serif for
+     display headings (the italic "I build great products" voice) and a
+     sans for body + UI. Swap in your real families if these differ.
+     --------------------------------------------------------------------- */
+
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;     /* display headings */
+  --font-sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* body + UI */
+  --font-mono:  ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;        /* code, if any */
+
+  /* Type scale (ratio 1.25) */
+  --text-xs:    0.80rem;   /* 12.8px — fine print, chip labels */
+  --text-sm:    0.90rem;   /* 14.4px — metadata, captions */
+  --text-base:  1.00rem;   /* 16px   — body */
+  --text-lg:    1.25rem;   /* 20px   — lead paragraph, card titles */
+  --text-xl:    1.563rem;  /* 25px   — h3 */
+  --text-2xl:   1.953rem;  /* 31px   — h2 */
+  --text-3xl:   2.441rem;  /* 39px   — section headers */
+  --text-4xl:   3.052rem;  /* 49px   — hero h1 */
+
+  /* Line height */
+  --leading-tight:  1.15;  /* large headings */
+  --leading-snug:   1.35;  /* sub-headings, card titles */
+  --leading-normal: 1.60;  /* body copy */
+
+  /* Weight */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Letter spacing — tighten big display, open up small all-caps labels */
+  --tracking-tight:  -0.02em;  /* hero / large headings */
+  --tracking-wide:    0.08em;  /* eyebrow / kicker labels */
+
+  /* Reading measure — cap prose line length for legibility */
+  --measure: 68ch;
+
+
+  /* ---------------------------------------------------------------------
+     3. SPACING
+     One 4px-based scale. Every margin/padding/gap should pull from here so
+     vertical rhythm stays consistent. Don't hand-type "13px" anywhere.
+     --------------------------------------------------------------------- */
+
+  --space-1:   0.25rem;  /*  4px */
+  --space-2:   0.50rem;  /*  8px */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1.00rem;  /* 16px */
+  --space-5:   1.50rem;  /* 24px */
+  --space-6:   2.00rem;  /* 32px */
+  --space-8:   3.00rem;  /* 48px */
+  --space-10:  4.00rem;  /* 64px */
+  --space-12:  6.00rem;  /* 96px */
+  --space-16:  8.00rem;  /* 128px — between major page sections */
+
+
+  /* ---------------------------------------------------------------------
+     4. SHAPE — radius, borders, shadow
+     Editorial = soft but restrained. Shadows are low-opacity and tinted
+     with the ink color so they read warm, not gray.
+     --------------------------------------------------------------------- */
+
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-full: 999px;   /* pills / chips / avatars */
+
+  --border-width: 1px;
+
+  --shadow-sm: 0 1px 2px  rgba(44, 49, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(44, 49, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(44, 49, 42, 0.10);
+
+
+  /* ---------------------------------------------------------------------
+     5. LAYOUT
+     Container widths and the standard section padding.
+     (Breakpoints can't be CSS variables — they're documented in DESIGN.md.)
+     --------------------------------------------------------------------- */
+
+  --container-max: 75rem;   /* 1200px — full page width */
+  --content-max:   42rem;   /* 672px  — prose / blog body width */
+  --section-pad-y: var(--space-16);  /* top/bottom padding of a section band */
+
+
+  /* ---------------------------------------------------------------------
+     6. MOTION
+     One default transition keeps interactions feeling like one system.
+     --------------------------------------------------------------------- */
+
+  --transition:      160ms ease;
+  --transition-slow: 280ms ease;
+
+
+  /* ---------------------------------------------------------------------
+     7. Z-INDEX
+     A named scale prevents the "z-index: 9999" arms race.
+     --------------------------------------------------------------------- */
+
+  --z-base:    0;
+  --z-header:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+}
+
+
+/* ==========================================================================
+   Optional: dark-mode overrides.
+   If you ever add a theme toggle, redefine the surface/ink tokens here and
+   the whole site flips. Left commented out until you want it.
+   ========================================================================== */
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:          #20231D;
+    --color-surface:     #2A2E25;
+    --color-surface-alt: #333829;
+    --color-ink:         #ECE9DC;
+    --color-ink-muted:   #B6BBA6;
+    --color-border:      #3C4133;
+  }
+}
+*/
