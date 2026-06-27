@@ -110,6 +110,11 @@
 .post-author-links a { font-size: 14px; font-weight: 700; color: var(--sage); text-decoration: none; }
 .post-author-links a:hover { color: var(--sage-dark); }
 
+.post-body table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 15px; }
+.post-body th, .post-body td { text-align: left; padding: 10px 16px; border: 1px solid var(--border); vertical-align: top; }
+.post-body thead th { background: var(--cream-dark); font-weight: 700; color: var(--ink); }
+.post-body tbody tr:nth-child(even) { background: var(--cream-mid); }
+
 @media (max-width: 860px) {
   .post-layout { grid-template-columns: 1fr; gap: 0; }
   .post-toc { display: none; }
@@ -117,4 +122,6 @@
 @media (max-width: 768px) {
   .post h1 { font-size: 32px; }
   .post-author { flex-direction: column; gap: 14px; }
+  .post-body table { font-size: 13px; }
+  .post-body th, .post-body td { padding: 8px 10px; }
 }
