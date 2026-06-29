@@ -2,7 +2,15 @@
 title = "Service Cloud rebuild for a national retail brand — Case Study"
 description = "Consolidating three disconnected support tools into one Service Cloud org — and cutting average handle time by more than a third."
 css = "case-study"
-weight = 0
+date = 2025-09-01
+weight = 10
+emoji = "🛒"
+industry = "Retail"
+headcolor = "proj-head-sage"
+filters = "salesforce service"
+summary_short = "Three support tools consolidated into one org with omni-channel routing. −38% handle time."
+metrics = ["−38% avg. handle time", "3→1 tools consolidated", "+22pts CSAT", "65% cases self-served"]
+stack = ["Service Cloud", "Omni-Channel", "Flows", "Knowledge", "Experience Cloud"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

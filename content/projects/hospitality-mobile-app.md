@@ -2,7 +2,15 @@
 title = "Mobile app roadmap & launch — Case Study"
 description = "Owning a guest-facing mobile app from discovery through launch and into a quarterly iteration loop."
 css = "case-study"
-weight = 0
+date = 2024-12-01
+weight = 10
+emoji = "🏨"
+industry = "Hospitality"
+headcolor = "proj-head-ink"
+filters = "service"
+summary_short = "Owned the end-to-end roadmap for a guest-facing mobile app from zero to launch and quarterly iteration."
+metrics = ["0→1 launch", "quarterly iteration loop"]
+stack = ["Product Strategy", "Roadmapping", "Mobile"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

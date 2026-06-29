@@ -2,7 +2,15 @@
 title = "Nexus scaled-Scrum transformation — Case Study"
 description = "Aligning five product teams on one integrated increment using the Nexus framework."
 css = "case-study"
-weight = 0
+date = 2025-03-01
+weight = 10
+emoji = "💻"
+industry = "High Tech"
+headcolor = "proj-head-ink"
+filters = "agile"
+summary_short = "Five product teams aligned on a single integrated backlog and one delivery increment with Nexus."
+metrics = ["5 teams aligned", "1 integrated increment"]
+stack = ["Nexus", "Scrum", "PI Planning"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

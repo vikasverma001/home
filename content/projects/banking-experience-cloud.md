@@ -2,7 +2,15 @@
 title = "Experience Cloud self-service portal — Case Study"
 description = "A secure, CRM-integrated self-service portal that let members resolve common requests on their own."
 css = "case-study"
-weight = 0
+date = 2024-06-01
+weight = 10
+emoji = "🏦"
+industry = "Banking"
+headcolor = "proj-head-sage"
+filters = "salesforce integration"
+summary_short = "Secure Experience Cloud portal integrated to core CRM. Members self-serve common requests. −31% inbound tickets."
+metrics = ["−31% inbound tickets", "SSO + role security"]
+stack = ["Experience Cloud", "SSO", "CRM Integration"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

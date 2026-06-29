@@ -2,7 +2,15 @@
 title = "JIRA Cloud governance overhaul — Case Study"
 description = "Bringing a sprawling, multi-project JIRA Cloud instance under one coherent governance model."
 css = "case-study"
-weight = 0
+date = 2024-09-01
+weight = 10
+emoji = "🏛️"
+industry = "Government"
+headcolor = "proj-head-amber"
+filters = "agile integration"
+summary_short = "Re-architected workflows, permissions, and automation across a multi-project JIRA Cloud instance."
+metrics = ["12 workflows unified", "40+ automations"]
+stack = ["JIRA Admin", "Automation", "Governance"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

@@ -1,4 +1,50 @@
-{{ define "pagecss" }}{{ with .Params.css }}<link rel="stylesheet" href="{{ (printf "css/%s.css" .) | relURL }}">{{ end }}{{ end }}
+{{ define "pagecss" }}<link rel="stylesheet" href="{{ "css/projects.css" | relURL }}">{{ end }}
 {{ define "main" }}
-{{ .Content }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $projects = sort $projects "Date" "desc" }}
+<div class="page-wrap page-wrap-wide">
+<div class="page-header"><div class="eyebrow">Projects &amp; Case Studies</div><h1>Selected work.</h1><p class="lead">A sample of engagements from 20 years of delivery — each one a real problem, a deliberate architecture, and a measurable outcome. Click any card for the full case study.</p></div>
+<div class="filter-bar" id="projFilters"><span class="filter-bar-label">Filter by</span><button class="filter-pill active" data-filter="all">All</button><button class="filter-pill" data-filter="salesforce">Salesforce</button><button class="filter-pill" data-filter="service">Service &amp; Support</button><button class="filter-pill" data-filter="agile">Agile / Nexus</button><button class="filter-pill" data-filter="integration">Integration</button></div>
+<div class="proj-grid" id="projGrid">
+{{ range $projects }}
+{{ if .Params.emoji }}
+<a class="proj-card" data-cat="{{ .Params.filters }}" href="{{ .RelPermalink }}">
+<div class="proj-head {{ .Params.headcolor }}"><span class="proj-emoji">{{ .Params.emoji }}</span><span class="proj-industry">{{ .Params.industry }}</span></div>
+<div class="proj-body">
+  <h3>{{ .Title | replaceRE " — Case Study$" "" }}</h3>
+  <p class="proj-summary">{{ .Description }}</p>
+  {{ with .Params.metrics }}<div class="proj-metrics">{{ range first 2 . }}<span class="proj-metric"><b>{{ . }}</b></span>{{ end }}</div>{{ end }}
+  {{ with .Params.stack }}<div class="proj-stack">{{ range first 3 . }}<span class="proj-tag">{{ . }}</span>{{ end }}</div>{{ end }}
+  <span class="proj-view">View case study →</span>
+</div>
+</a>
+{{ end }}
+{{ end }}
+</div>
+<div class="proj-empty" id="projEmpty" hidden>No projects in this category yet — try another filter.</div>
+<div class="proj-cta"><h2>Want the full story behind any of these? <em>Ask me.</em></h2><a href="/contact/">Get in touch →</a></div>
+<div style="height:48px;"></div>
+</div>
+<script>
+(function () {
+  var filters = document.getElementById("projFilters");
+  if (!filters) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#projGrid .proj-card"));
+  var empty = document.getElementById("projEmpty");
+  filters.addEventListener("click", function (e) {
+    var btn = e.target.closest(".filter-pill");
+    if (!btn) return;
+    filters.querySelectorAll(".filter-pill").forEach(function (p) { p.classList.remove("active"); });
+    btn.classList.add("active");
+    var f = btn.getAttribute("data-filter");
+    var shown = 0;
+    cards.forEach(function (c) {
+      var match = f === "all" || (" " + c.getAttribute("data-cat") + " ").indexOf(" " + f + " ") !== -1;
+      c.style.display = match ? "" : "none";
+      if (match) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  });
+})();
+</script>
 {{ end }}

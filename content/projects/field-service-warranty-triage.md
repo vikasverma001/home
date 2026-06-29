@@ -2,7 +2,15 @@
 title = "Smart warranty triage on Service Cloud — Case Study"
 description = "Automating warranty-claim triage for a large enterprise account — validating coverage at intake and routing cases in seconds instead of hours."
 css = "case-study"
-weight = 0
+date = 2026-06-29
+weight = 10
+emoji = "🛠️"
+industry = "Field Service"
+headcolor = "proj-head-sage"
+filters = "salesforce service"
+summary_short = "Warranty validation and routing automated at intake. 4h→10m first response, −40% triage effort."
+metrics = ["4h→10m first response", "−40% triage effort", "−30% case volume", "4.8/5 CSAT"]
+stack = ["Service Cloud", "Record-Triggered Flow", "Omni-Channel", "Einstein Bot", "Experience Cloud"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

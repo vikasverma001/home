@@ -2,7 +2,15 @@
 title = "Customer support organization built from scratch — Case Study"
 description = "Standing up a 24/7 support function for a health-tech platform on an ITIL 4 operating model — from zero."
 css = "case-study"
-weight = 0
+date = 2025-06-01
+weight = 10
+emoji = "❤️"
+industry = "Health"
+headcolor = "proj-head-amber"
+filters = "service agile"
+summary_short = "Built a 24/7 support org from zero — tiered SLAs, escalation paths, and a full knowledge base on ITIL 4."
+metrics = ["0→24/7 coverage", "4-tier SLA model"]
+stack = ["ITIL 4", "Support Ops", "Knowledge Base"]
 +++
 <div class="page-wrap cs-wrap">
 <a class="cs-back" href="/projects/">← All projects</a>

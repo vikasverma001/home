@@ -60,9 +60,12 @@
     <div class="eyebrow">Selected work</div>
     <div class="sec-title">A few recent engagements</div>
     <div class="work-grid">
-      <a class="work-card" href="{{ "/projects/field-service-warranty-triage/" | relURL }}"><div class="work-ind">🛠️ Field Service</div><h3>Smart warranty triage</h3><p>Warranty validation and routing automated at intake. 4h→10m first response, −40% triage effort.</p></a>
-      <a class="work-card" href="{{ "/projects/retail-service-cloud/" | relURL }}"><div class="work-ind">🛒 Retail</div><h3>Service Cloud rebuild</h3><p>Three support tools consolidated into one org with omni-channel routing. −38% handle time.</p></a>
-      <a class="work-card" href="{{ "/projects/hightech-nexus/" | relURL }}"><div class="work-ind">💻 High Tech</div><h3>Nexus transformation</h3><p>Five product teams aligned on a single integrated backlog and one delivery increment.</p></a>
+      {{ $projects := where .Site.RegularPages "Section" "projects" }}
+      {{ range first 3 (sort $projects "Date" "desc") }}
+      {{ if .Params.emoji }}
+      <a class="work-card" href="{{ .RelPermalink }}"><div class="work-ind">{{ .Params.emoji }} {{ .Params.industry }}</div><h3>{{ .Title | replaceRE " — Case Study$" "" }}</h3><p>{{ .Params.summary_short }}</p></a>
+      {{ end }}
+      {{ end }}
     </div>
     <a class="see-all" href="{{ "/projects/" | relURL }}">See all projects →</a>
   </div>
