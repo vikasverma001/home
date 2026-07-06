@@ -1,5 +1,5 @@
 +++
-title = "About — Vikas Verma"
+title = "About"
 description = "20 years at the intersection of product strategy, customer experience, and technical delivery."
 css = "about"
 url = "/about/"

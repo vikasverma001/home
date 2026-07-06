@@ -1,5 +1,5 @@
 +++
-title = "Experience — Vikas Verma"
+title = "Experience"
 description = "20 years of delivery across mobile apps, enterprise Salesforce, Agile coaching, and customer service design."
 css = "experience"
 url = "/experience/"

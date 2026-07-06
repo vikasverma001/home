@@ -1,5 +1,5 @@
 +++
-title = "Skills — Vikas Verma"
+title = "Skills"
 description = "10 industry certifications across Agile, Salesforce, ITSM, and tooling — each linking to its official verification page."
 css = "skills"
 url = "/skills/"

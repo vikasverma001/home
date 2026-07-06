@@ -1,5 +1,5 @@
 +++
-title = "Contact — Vikas Verma"
+title = "Contact"
 description = "Open to consulting engagements, fractional PM work, Salesforce architecture projects, and Agile coaching."
 css = "contact"
 url = "/contact/"
